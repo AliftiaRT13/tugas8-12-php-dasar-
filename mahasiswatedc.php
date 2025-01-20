@@ -2,6 +2,13 @@
 
     session_start();
 
+    if (!isset($_SESSION['login'])) {
+        if ($_SESSION['login'] != true) {
+            header("Location: login.php");
+            exit;
+        }
+    }
+
     $mysqli = new mysqli('localhost', 'root', '', 'tedc');
     $result = $mysqli->query("SELECT students.nim, students.nama, study_programs.prodi
     FROM students INNER JOIN study_programs ON students.id = study_programs.nomor");
@@ -36,8 +43,8 @@
     </div>
     <?php } ?>
 
-
     <a href="tambah_mahasiswa.php" class="btn btn-primary">Add</a>
+    <a href="logout.php" class="btn btn-warning">Logout</a>
 
     <table class="table table-bordered table-hover">
         <tr>
@@ -45,6 +52,7 @@
             <th> NIM </th>
             <th> Nama </th>
             <th> Program Studi </th>
+            <th> Edit </th>
         </tr>
         <?php foreach ($students as $row ) { ?>
             <tr>
