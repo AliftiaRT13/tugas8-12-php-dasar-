@@ -28,7 +28,9 @@
 <body>
     <div class="container"> 
     <h1 class="text-center"> Data Mahasiswa KA 2021 </h1>   
-  
+    
+    <a href="tambah_mahasiswa.php" class="btn btn-primary">Add</a>
+
     <table class="table table-bordered table-hover">
         <tr>
             <th> No </th>
