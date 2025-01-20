@@ -44,6 +44,9 @@
                 <td><?= $row['nim']; ?></td>
                 <td><?= $row['nama']; ?></td>
                 <td><?= $row['prodi']; ?></td>
+                <td>
+                    <a href="hapus_mahasiswa.php?nim=<?=$row['nim']?>" class="btn btn-danger" onclick="return confirm('Apakah yakin data ini akan dihapus?')">Delete</a>
+                    <a href="edit_mahasiswa.php?nim=<?=$row['nim']?>" class="btn btn-success">Edit</a>
              </tr>
         <?php } ?> 
     </table>  
