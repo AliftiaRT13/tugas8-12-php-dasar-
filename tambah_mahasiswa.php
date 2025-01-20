@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     $mysqli = new mysqli('localhost', 'root', '', 'tedc');
 
     $study_programs = $mysqli->query("Select * from study_programs");
@@ -10,6 +12,8 @@
 
         $insert = $mysqli->query("INSERT INTO students(nim, nama, id) VALUES ('$nim','$nama','$prodi')");
         if ($insert) {
+            $_SESSION['success'] = true;
+            $_SESSION['message'] = 'Data Telah Ditambah';
             header("Location: mahasiswatedc.php");
             exit();
         }

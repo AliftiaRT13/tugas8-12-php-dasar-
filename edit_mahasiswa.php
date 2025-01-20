@@ -1,5 +1,7 @@
 <?php
-   
+    
+    session_start();
+    
     $mysqli = new mysqli('localhost', 'root', '', 'tedc');
 
     $nim = $_GET['nim'];
@@ -15,6 +17,8 @@
         $update = $mysqli->query("UPDATE students SET nama='$nama', id=$study_programs WHERE nim='$nim'");
 
         if($update) {
+            $_SESSION['success'] = true;
+            $_SESSION['message'] = 'Data Telah Diubah';
             header("Location: mahasiswatedc.php");
             exit();
         }
